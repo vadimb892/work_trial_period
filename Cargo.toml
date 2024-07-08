@@ -1,0 +1,33 @@
+[package]
+name = "work_trial_period"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = [
+    "crates/bin/spaceship_game"
+]
+resolver = "2"
+
+[workspace.lints.rust]
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+too_many_arguments = "allow"
+type_complexity = "allow"
+needless_pass_by_value = "allow"
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = true
+
+[workspace.dependencies]
+bevy = { version = "0.14.0", default-features = false}
+rand = "0.8.5"

@@ -1,0 +1,16 @@
+debug/
+target/
+dist/
+Cargo.lock
+#crates/bin/*/assets/scenes/*
+**/*.rs.bk
+*.pdb
+.vscode/
+*.zst
+-*
+pkg/
+imported_assets
+
+
+node_modules
+.idea
